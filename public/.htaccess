@@ -1,0 +1,13 @@
+# public/.htaccess
+
+# Abilita il motore di riscrittura
+RewriteEngine On
+
+# Riscrivi le richieste solo se il file o la directory non esistono
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Riscrivi tutte le richieste a index.php
+# La [L] significa che questa è l'ultima regola da applicare
+# La [QSA] significa che la query string originale (es. ?param=value) verrà aggiunta
+RewriteRule ^ index.php [L,QSA]
